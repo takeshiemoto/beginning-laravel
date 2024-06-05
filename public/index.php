@@ -9,9 +9,11 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
     require $maintenance;
 }
 
-// Register the Composer autoloader...
+// https://laravel.com/docs/11.x/lifecycle#service-providers
+
+// Composerのオートローダーを登録する
 require __DIR__.'/../vendor/autoload.php';
 
-// Bootstrap Laravel and handle the request...
+// Laravelをブートストラップしてリクエストを処理する
 (require_once __DIR__.'/../bootstrap/app.php')
     ->handleRequest(Request::capture());
