@@ -6,3 +6,4 @@ use App\Http\Controllers\TodoController;
 Route::get('/todos', [TodoController::class, 'index']);
 Route::post('/todos', [TodoController::class, 'store']);
 Route::put('/todos/{id}', [TodoController::class, 'update']);
+Route::get('/todos/{id}', [TodoController::class, 'show']);
