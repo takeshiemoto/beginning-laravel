@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Todo;
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
     public function index()
     {
-        $todos = [
-            'id' => 1,
-            'title' => 'Todo 1',
-            'description' => 'Todo 1 description',
-            'completed' => false,
-        ];
+        return Todo::all(['id', 'title', 'description', 'completed']);
+    }
 
-        return response()->json($todos);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'required|boolean'
+        ]);
+
+        $todo = Todo::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'completed' => $request->completed
+        ]);
+
+        return response()->json($todo, 201);
     }
 }
