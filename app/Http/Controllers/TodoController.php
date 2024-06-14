@@ -6,14 +6,15 @@ use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
 use App\Models\Todo;
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class TodoController extends Controller
 {
     public function index(): JsonResponse
     {
-        $todos =  Todo::all(['id', 'title', 'description', 'completed']);
+        $todos = Todo::all(['id', 'title', 'description', 'completed']);
 
-        return response()->json($todos);
+        return response()->json($todos, Response::HTTP_OK);
     }
 
     public function store(StoreTodoRequest $request): JsonResponse
@@ -21,7 +22,7 @@ class TodoController extends Controller
         // バリデーション済みのデータを取得
         $todo = Todo::create($request->validated());
 
-        return response()->json($todo, 201);
+        return response()->json($todo, Response::HTTP_CREATED);
     }
 
     public function update(UpdateTodoRequest $request, $id): JsonResponse
@@ -29,19 +30,20 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($id);
         $todo->update($request->validated());
 
-        return response()->json($todo);
+        return response()->json($todo, Response::HTTP_OK);
     }
 
     public function show($id): JsonResponse
     {
         $todo = Todo::findOrFail($id);
-        return response()->json($todo);
+
+        return response()->json($todo, Response::HTTP_OK);
     }
 
     public function destroy($id): JsonResponse
     {
         $todo = Todo::findOrFail($id);
         $todo->delete();
-        return response()->json(null);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
