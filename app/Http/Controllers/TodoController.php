@@ -13,7 +13,7 @@ class TodoController extends Controller
 {
     public function index(): JsonResponse
     {
-        $todos = Todo::all(['id', 'title', 'description', 'completed']);
+        $todos = Todo::all(['id', 'title', 'description', 'completed', 'created_at', 'updated_at']);
 
         return response()->json(TodoResource::collection($todos), Response::HTTP_OK);
     }
