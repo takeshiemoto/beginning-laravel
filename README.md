@@ -15,5 +15,5 @@ php artisan serve
 ## Format code
 
 ```shell
-./vendor/bin/php-cs-fixer fix app/
+./vendor/bin/php-cs-fixer fix
 ```
