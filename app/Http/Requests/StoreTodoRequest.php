@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class StoreTodoRequest extends FormRequest
+class StoreTodoRequest extends BaseFormRequest
 {
     /**
      * ユーザーがこのリクエストを行う権限を持っているかどうかを確認します
