@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('web'),
-        'passwords' => env('users'),
+        'guard' => 'web',
+        'passwords' => 'users',
     ],
 
     /*
@@ -40,7 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'provider' => 'users',
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+            'hash' => false
+        ],
     ],
 
     /*
@@ -63,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env(App\Models\User::class),
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [
