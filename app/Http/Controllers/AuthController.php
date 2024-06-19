@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validated();
         if (Auth::guard('web')->attempt($credentials)) {
             $token = Auth::user()->createToken('AccessToken')->plainTextToken;
             return response()->json(['token' => $token]);
         }
-        return response()->json(['message' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
+        throw new AuthenticationException();
     }
 
     public function me(Request $request)
