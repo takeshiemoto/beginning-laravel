@@ -3,20 +3,20 @@ Content-Type: application/json
 
 {
     "email": "test@example.com",
-    "password": "unkounko"
+    "password": "password"
 }
 
 ###
 
 POST localhost:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 9|VmsDUxr9t0nGYd6u6Ry8SUN5fjYtwtiEqobOCbhUcea22ab5
 
 ###
 
 GET localhost:8000/api/me
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 10|XJ803XNlWVkLSrdoOyAsKZoaZxkZ9GozeVyn0QFAa8c2abff
 
 ###
 
