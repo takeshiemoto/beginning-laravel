@@ -5,21 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Resources\AuthResource;
 use App\Http\Resources\UserResource;
+use App\Services\AuthService;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
+    private AuthService $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
-        if (Auth::guard('web')->attempt($credentials)) {
-            $token = Auth::user()->createToken('AccessToken')->plainTextToken;
-            return response()->json(new AuthResource($token), Response::HTTP_CREATED);
+        $token = $this->authService->attempt($credentials);
+        if (!$token) {
+            throw new AuthenticationException();
         }
-        throw new AuthenticationException();
+        return response()->json(new AuthResource($token), Response::HTTP_OK);
     }
 
     public function me(Request $request)
@@ -29,7 +36,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $request->user()->currentAccessToken()->delete();
+        $this->authService->logout($request->user());
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

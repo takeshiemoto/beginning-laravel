@@ -10,7 +10,7 @@ Content-Type: application/json
 
 POST localhost:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 9|VmsDUxr9t0nGYd6u6Ry8SUN5fjYtwtiEqobOCbhUcea22ab5
+Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 ###
 
