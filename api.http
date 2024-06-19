@@ -1,0 +1,61 @@
+POST localhost:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+
+###
+
+POST localhost:8000/api/logout
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+###
+
+GET localhost:8000/api/me
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+###
+
+GET localhost:8000/api/todos
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+###
+
+POST localhost:8000/api/todos
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+{
+    "title": "test post",
+    "description": "test",
+    "completed": false
+}
+
+###
+
+GET localhost:8000/api/todos/1
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+###
+
+PUT localhost:8000/api/todos/1
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+
+{
+    "title": "test put",
+    "description": "test",
+    "completed": false
+}
+
+###
+
+DELETE localhost:8000/api/todos/1
+Content-Type: application/json
+Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
