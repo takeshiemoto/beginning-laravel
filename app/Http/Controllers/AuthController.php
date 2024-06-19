@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,7 @@ class AuthController extends Controller
             $token = Auth::user()->createToken('AccessToken')->plainTextToken;
             return response()->json(['token' => $token]);
         }
-        return response()->json(['message' => 'Unauthorized']);
+        return response()->json(['message' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
     }
 
     public function me(Request $request)
