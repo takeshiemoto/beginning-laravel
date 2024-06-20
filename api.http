@@ -10,25 +10,25 @@ Content-Type: application/json
 
 POST localhost:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
+Authorization: Bearer 13|WGlyZLNHKQP1Kc8GEJUoO0mE9kGuor6NCohyt1GY110fc80c
 
 ###
 
 GET localhost:8000/api/me
 Content-Type: application/json
-Authorization: Bearer 10|XJ803XNlWVkLSrdoOyAsKZoaZxkZ9GozeVyn0QFAa8c2abff
+Authorization: Bearer 12|m5BIeqJoL06FtSAGoJd8RgPJ1cEm2hHGYTY6Sq958b6e4fd7
 
 ###
 
 GET localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 ###
 
 POST localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 12|m5BIeqJoL06FtSAGoJd8RgPJ1cEm2hHGYTY6Sq958b6e4fd7
 
 {
     "title": "test post",
@@ -40,13 +40,13 @@ Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
 
 GET localhost:8000/api/todos/1
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 ###
 
 PUT localhost:8000/api/todos/1
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 {
     "title": "test put",
@@ -58,4 +58,4 @@ Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
 
 DELETE localhost:8000/api/todos/1
 Content-Type: application/json
-Authorization: Bearer 6|xuEvkyfx3weEbd7Lqs7l87gfQzKQiRgnLTlnopqWab5cd50f
+Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
