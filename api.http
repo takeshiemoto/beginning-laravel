@@ -2,7 +2,17 @@ POST localhost:8000/api/login
 Content-Type: application/json
 
 {
-    "email": "fcartwright@example.com",
+    "email": "casper65@example.org",
+    "password": "password"
+}
+
+###
+
+POST localhost:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "twillms@example.org",
     "password": "password"
 }
 
@@ -10,7 +20,7 @@ Content-Type: application/json
 
 POST localhost:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 13|WGlyZLNHKQP1Kc8GEJUoO0mE9kGuor6NCohyt1GY110fc80c
+Authorization: Bearer 3|gefqwIvOLNdUH34UIOGcI8gBmvnP09XyUaSvG9Imee8cc525
 
 ###
 
@@ -22,16 +32,16 @@ Authorization: Bearer 12|m5BIeqJoL06FtSAGoJd8RgPJ1cEm2hHGYTY6Sq958b6e4fd7
 
 GET localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
+Authorization: Bearer 5|KVffoR3JdKazObFpzSeO4UUprYOkqswAQXYDFs8rbf33ef63
 
 ###
 
 POST localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 12|m5BIeqJoL06FtSAGoJd8RgPJ1cEm2hHGYTY6Sq958b6e4fd7
+Authorization: Bearer 4|u3zE1bVU1eMCireXSnfkFVADiHXeJjL4qGeYtH5cb919c71b
 
 {
-    "title": "test post",
+    "title": "amazon music",
     "description": "test",
     "completed": false
 }
@@ -46,7 +56,7 @@ Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 PUT localhost:8000/api/todos/1
 Content-Type: application/json
-Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
+Authorization: Bearer 5|KVffoR3JdKazObFpzSeO4UUprYOkqswAQXYDFs8rbf33ef63
 
 {
     "title": "test put",
