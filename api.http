@@ -26,22 +26,22 @@ Authorization: Bearer 3|gefqwIvOLNdUH34UIOGcI8gBmvnP09XyUaSvG9Imee8cc525
 
 GET localhost:8000/api/me
 Content-Type: application/json
-Authorization: Bearer 12|m5BIeqJoL06FtSAGoJd8RgPJ1cEm2hHGYTY6Sq958b6e4fd7
+Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
 GET localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 5|KVffoR3JdKazObFpzSeO4UUprYOkqswAQXYDFs8rbf33ef63
+Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
 POST localhost:8000/api/todos
 Content-Type: application/json
-Authorization: Bearer 4|u3zE1bVU1eMCireXSnfkFVADiHXeJjL4qGeYtH5cb919c71b
+Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 {
-    "title": "amazon music",
+    "title": "Apple music",
     "description": "test",
     "completed": false
 }
@@ -50,7 +50,7 @@ Authorization: Bearer 4|u3zE1bVU1eMCireXSnfkFVADiHXeJjL4qGeYtH5cb919c71b
 
 GET localhost:8000/api/todos/1
 Content-Type: application/json
-Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
+Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
