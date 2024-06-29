@@ -1,0 +1,41 @@
+name: PHP CS Fixer
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  larastan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3.7
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          IFS=$'\n'
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB "${{ github.event.before }}...${{ github.sha }}")
+          echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
+
+      - name: Run PHP CS Fixer
+        run: |
+          IFS=$'\n'
+          if ! echo "${CHANGED_FILES}" | grep -qE "^(\\.php-cs-fixer(\\.dist)?\\.php|composer\\.lock)$"; then
+            EXTRA_ARGS=$(printf -- '--path-mode=intersection\n--\n%s' "${CHANGED_FILES}")
+          else
+            EXTRA_ARGS=''
+          fi
+          vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php -v --stop-on-violation --using-cache=no $EXTRA_ARGS
