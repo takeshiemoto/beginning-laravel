@@ -17,7 +17,7 @@ $finder = Finder::create()
     ->notName('*.blade.php')
     ->exclude('vendor')
     ->exclude('storage')
-    ->exclude('/bootstrap/cache')
+    ->exclude('bootstrap/cache')
     ->exclude('node_modules');
 
 $config = new Config();
