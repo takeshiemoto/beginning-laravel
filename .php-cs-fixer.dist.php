@@ -13,12 +13,15 @@ $finder = Finder::create()
         __DIR__ . '/routes',
         __DIR__ . '/tests',
     ])
-    ->name('*.php')
-    ->notName('*.blade.php')
-    ->exclude('vendor')
-    ->exclude('storage')
-    ->exclude('bootstrap/cache')
-    ->exclude('node_modules');
+    ->exclude([
+        'bootstrap/cache',
+        'vendor',
+        'node_modules',
+        'storage',
+    ])
+    ->notPath([
+        '*.blade.php',
+    ]);
 
 $config = new Config();
 
