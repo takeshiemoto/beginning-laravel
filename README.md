@@ -9,7 +9,7 @@ composer install
 ## Start server
 
 ```shell
-php artisan serve
+make init
 ```
 
 ## Format code
