@@ -1,3 +1,5 @@
+.PHONY: init start stop clean test format db
+
 DOCKER_COMPOSE = docker-compose
 
 init:
