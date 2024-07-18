@@ -1,5 +1,3 @@
-# Makefile
-
 DOCKER_COMPOSE = docker-compose
 
 init:
@@ -19,3 +17,9 @@ clean:
 
 test:
 	$(DOCKER_COMPOSE) exec app php artisan test
+
+format:
+	./vendor/bin/php-cs-fixer fix
+
+db:
+	$(DOCKER_COMPOSE) exec postgres psql -U laravel -d laravel
