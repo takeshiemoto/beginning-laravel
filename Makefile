@@ -7,6 +7,7 @@ init: clean
 	$(DOCKER_COMPOSE) up -d --build
 	sleep 10
 	$(DOCKER_COMPOSE) exec app php artisan migrate
+	$(DOCKER_COMPOSE) exec app php artisan db:seed
 
 start:
 	$(DOCKER_COMPOSE) up -d
@@ -27,6 +28,17 @@ format:
 db:
 	$(DOCKER_COMPOSE) exec postgres psql -U laravel -d laravel
 
+
 composer_install:
 	$(DOCKER_COMPOSE) run --rm app rm -rf vendor
 	$(DOCKER_COMPOSE) run --rm app composer install
+
+migrate:
+	$(DOCKER_COMPOSE) exec app php artisan migrate
+
+migrate_fresh:
+	$(DOCKER_COMPOSE) exec app php artisan migrate:fresh
+
+seed:
+	$(MAKE) migrate_fresh
+	$(DOCKER_COMPOSE) exec app php artisan db:seed

@@ -13,6 +13,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('/todos/{id}', [TodoController::class, 'update']);
     Route::delete('/todos/{id}', [TodoController::class, 'destroy']);
 
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/all-todos', [TodoController::class, 'allTodos']);
+    });
+
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

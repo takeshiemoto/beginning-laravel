@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Auth\AuthenticationException;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,12 +14,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'role' => RoleMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (AuthenticationException $e, Request $request) {
+        // LaravelがJSONを返すかHTMLを返すかはAcceptヘッダーによって判断される
+        // shouldRenderJsonWhenを利用して判定条件を変更することができる
+        // この設定ではAcceptヘッダーの有無に問わず/apiへのアクセスはすべてJSONを返す
+        $exceptions->shouldRenderJsonWhen(function (Request $request) {
             if ($request->is('api/*')) {
-                return response()->json(['message' => $e->getMessage()], Response::HTTP_UNAUTHORIZED);
+                return true;
             }
             return $request->expectsJson();
         });

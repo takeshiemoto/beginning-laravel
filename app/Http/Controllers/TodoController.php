@@ -45,4 +45,10 @@ class TodoController extends Controller
         $todo->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function allTodos(): JsonResponse
+    {
+        // return message hello world
+        return response()->json(['message' => 'Hello World'], Response::HTTP_OK);
+    }
 }

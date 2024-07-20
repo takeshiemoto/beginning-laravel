@@ -1,43 +1,47 @@
-POST localhost:8000/api/login
+POST localhost:8080/api/login
 Content-Type: application/json
+Accept: application/json
 
 {
-    "email": "mayert.christine@example.org",
+    "email": "schristiansen@example.com",
     "password": "password"
 }
 
 ###
 
-POST localhost:8000/api/login
+POST localhost:8080/api/login
 Content-Type: application/json
 
 {
-    "email": "twillms@example.org",
+    "email": "emery60@example.net",
     "password": "password"
 }
 
 ###
 
-POST localhost:8000/api/logout
+POST localhost:8080/api/logout
 Content-Type: application/json
-Authorization: Bearer 3|gefqwIvOLNdUH34UIOGcI8gBmvnP09XyUaSvG9Imee8cc525
+Accept: application/json
+Authorization:  Bearer 3|1usLTgKHpdaz1YqDmbZL3p6uvEciAl3uaMCD8urx5e9bee37
 
 ###
 
-GET localhost:8000/api/me
+GET localhost:8080/api/me
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 3|1usLTgKHpdaz1YqDmbZL3p6uvEciAl3uaMCD8urx5e9bee37
+
+###
+
+GET localhost:8080/api/todos
 Content-Type: application/json
 Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
-GET localhost:8000/api/todos
+POST localhost:8080/api/todos
 Content-Type: application/json
-Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
-
-###
-
-POST localhost:8000/api/todos
-Content-Type: application/json
+Accept: application/json
 Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 {
@@ -48,13 +52,13 @@ Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
-GET localhost:8000/api/todos/1
+GET localhost:8080/api/todos/1
 Content-Type: application/json
 Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
 
 ###
 
-PUT localhost:8000/api/todos/1
+PUT localhost:8080/api/todos/1
 Content-Type: application/json
 Authorization: Bearer 5|KVffoR3JdKazObFpzSeO4UUprYOkqswAQXYDFs8rbf33ef63
 
@@ -66,6 +70,20 @@ Authorization: Bearer 5|KVffoR3JdKazObFpzSeO4UUprYOkqswAQXYDFs8rbf33ef63
 
 ###
 
-DELETE localhost:8000/api/todos/1
+DELETE localhost:8080/api/todos/1
 Content-Type: application/json
 Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
+
+###
+
+GET localhost:8080/api/all-todos
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|iZbWdHbtPfq9MGCrY3Wzm6OogYRD6zJfezLPNhKgb0a18e91
+
+###
+
+GET localhost:8080/api/all-todos
+Content-Type: application/json
+#Accept: application/json
+Authorization: Bearer 2|fgJnO9E9HXrwEYi8ls1J71sCnOA7jVTyIoggB0Zra5b19d51
