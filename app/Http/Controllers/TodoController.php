@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTodoRequest;
 use App\Http\Resources\TodoResource;
 use App\Models\Todo;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,5 +45,10 @@ class TodoController extends Controller
         $todo = Auth::user()->todos()->findOrFail($id);
         $todo->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function allTodos(Request $request): JsonResponse
+    {
+        return response()->json(['message' => 'Hello World'], Response::HTTP_OK);
     }
 }
