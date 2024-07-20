@@ -29,7 +29,7 @@ Authorization: Bearer 4|PHDFM20PWUKbYHai3d8UM9g4xfTGjG1596EJmZn6ba93f15f
 GET localhost:8080/api/me
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer 3|1usLTgKHpdaz1YqDmbZL3p6uvEciAl3uaMCD8urx5e9bee37
+Authorization: Bearer 3|COnEpWWs5iqjnPtXWIcjvSbeRfcYSHvA2Je6qrbH8f465086
 
 ###
 
