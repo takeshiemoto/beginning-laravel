@@ -22,7 +22,7 @@ Content-Type: application/json
 POST localhost:8080/api/logout
 Content-Type: application/json
 Accept: application/json
-Authorization:  Bearer 3|1usLTgKHpdaz1YqDmbZL3p6uvEciAl3uaMCD8urx5e9bee37
+Authorization: Bearer 4|PHDFM20PWUKbYHai3d8UM9g4xfTGjG1596EJmZn6ba93f15f
 
 ###
 
@@ -35,17 +35,17 @@ Authorization: Bearer 3|1usLTgKHpdaz1YqDmbZL3p6uvEciAl3uaMCD8urx5e9bee37
 
 GET localhost:8080/api/todos
 Content-Type: application/json
-Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
+Authorization: Bearer 4|PHDFM20PWUKbYHai3d8UM9g4xfTGjG1596EJmZn6ba93f15f
 
 ###
 
 POST localhost:8080/api/todos
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer 2|R0HeBHaqid7XKRIEXADJtQw6l7FOs81G2CUCvopU8d17ac73
+Authorization: Bearer 1|iZbWdHbtPfq9MGCrY3Wzm6OogYRD6zJfezLPNhKgb0a18e91
 
 {
-    "title": "Apple music",
+    "title": "Amazon music",
     "description": "test",
     "completed": false
 }
@@ -76,14 +76,14 @@ Authorization: Bearer 11|Vx6WJYFqtOdaUQkqbGzvpFvIufeW4VHzl6beNZ7c97a28f5e
 
 ###
 
-GET localhost:8080/api/all-todos
+GET localhost:8080/api/admin/todos
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer 1|iZbWdHbtPfq9MGCrY3Wzm6OogYRD6zJfezLPNhKgb0a18e91
 
 ###
 
-GET localhost:8080/api/all-todos
+GET localhost:8080/api/admin/todos
 Content-Type: application/json
 #Accept: application/json
 Authorization: Bearer 2|fgJnO9E9HXrwEYi8ls1J71sCnOA7jVTyIoggB0Zra5b19d51

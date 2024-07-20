@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AcceptJsonMiddleware;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,15 +18,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => RoleMiddleware::class
         ]);
+
+        $middleware->api([
+            AcceptJsonMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        // LaravelがJSONを返すかHTMLを返すかはAcceptヘッダーによって判断される
-        // shouldRenderJsonWhenを利用して判定条件を変更することができる
-        // この設定ではAcceptヘッダーの有無に問わず/apiへのアクセスはすべてJSONを返す
-        $exceptions->shouldRenderJsonWhen(function (Request $request) {
-            if ($request->is('api/*')) {
-                return true;
-            }
-            return $request->expectsJson();
-        });
+        // TODO
     })->create();
