@@ -1,4 +1,4 @@
-.PHONY: init start stop clean test format db composer_install
+.PHONY: init start stop clean test format generate db composer_install migrate migrate_fresh seed
 
 DOCKER_COMPOSE = docker-compose
 
@@ -23,11 +23,16 @@ test:
 	$(DOCKER_COMPOSE) exec app php artisan test
 
 format:
-	./vendor/bin/php-cs-fixer fix
+	$(DOCKER_COMPOSE) exec app ./vendor/bin/php-cs-fixer fix
+
+generate:
+	$(DOCKER_COMPOSE) exec app php artisan ide-helper:models -W
+	$(DOCKER_COMPOSE) exec app php artisan ide-helper:generate
+	$(DOCKER_COMPOSE) exec app php artisan ide-helper:meta
+	$(MAKE) format
 
 db:
 	$(DOCKER_COMPOSE) exec postgres psql -U laravel -d laravel
-
 
 composer_install:
 	$(DOCKER_COMPOSE) run --rm app rm -rf vendor
