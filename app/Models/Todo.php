@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Todo whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Todo whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Todo whereUserId($value)
+ * @method static \Database\Factories\TodoFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */
 class Todo extends Model
